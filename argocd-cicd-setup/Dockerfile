@@ -1,6 +1,6 @@
 FROM ubuntu:latest
-LABEL name="Ravindra Singh"
-LABEL email="ravindrasinghh.me@gmail.com"
+LABEL name="Narendra Baratam"
+LABEL email="baratam.narendra@gmail.com"
 ENV UBUNTU_HOME=/var/www/html/
 RUN apt-get update -y
 ENV DEBIAN_FRONTEND noninteractive	
