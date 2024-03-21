@@ -9,6 +9,7 @@ on:
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  APP_VERSION: ${{ vars.APP_VERSION }}
 
 jobs:
   deploy:
@@ -28,8 +29,8 @@ jobs:
       # Build Docker image and push it to Docker Hub
       - name: Build and push Docker image
         run: |
-          docker build -t ${DOCKER_USERNAME}/my-app:latest -f argocd-cicd-setup/Dockerfile .
-          docker push ${DOCKER_USERNAME}/my-app:latest
+          docker build -t ${DOCKER_USERNAME}/my-app:${APP_VERSION} -f argocd-cicd-setup/Dockerfile .
+          docker push ${DOCKER_USERNAME}/my-app:${APP_VERSION}
       # - name: Login to GitHub Packages
       #   uses: actions/checkout@v3
       #   with:
